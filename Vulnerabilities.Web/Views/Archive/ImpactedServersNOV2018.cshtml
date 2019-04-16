@@ -1,0 +1,98 @@
+﻿@model VServersListingViewModel
+
+@{
+    ViewData["Title"] = "List of servers November 2018";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+
+<p>
+    Total number: <span class="badge-pill">@Model.ServersAffectedByOneVulnerability.Count()</span>
+</p>
+
+
+<form class="form-inline my-2 my-sm-1" asp-action="ImpactedServers" asp-controller="Server" method="get">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+
+<br />
+<div class="form-border" style="font-size:12px">
+
+    <table class="table table-responsive">
+        <tr>
+            <th>
+                System name
+            </th>
+            <th style="text-align:center">
+                System status
+            </th>
+            <th style="text-align:center">
+                System type
+            </th>
+            <th style="text-align:center">
+                OS version
+            </th>
+            <th style="text-align:center">
+                Technical owner
+            </th>
+            <th style="text-align:center">
+                Downtime contact
+            </th>
+            <th style="text-align:center">
+                Last detected date
+            </th>
+            <th style="text-align:center">
+                Port
+            </th>
+            <th style="text-align:center">
+                Notes
+            </th>
+        </tr>
+
+        @foreach (var server in Model.ServersAffectedByOneVulnerability.Where(s => s.LastDetected.Month == 11 && s.LastDetected.Year == DateTime.Now.Year-1))
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(m => server.SystemName)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.SystemStatus)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.SystemType)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.OSversion)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.TechnicalOwner)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.DowntimeContact)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.LastDetected)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.Port)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => server.Notes)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<div class="btn-block btn-group-sm">
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-sm btn-primary">Home</a>
+    <a asp-area="" asp-controller="Archive" asp-action="ArchivePage" class="btn btn-sm btn-primary">Back</a>
+</div>
+
+

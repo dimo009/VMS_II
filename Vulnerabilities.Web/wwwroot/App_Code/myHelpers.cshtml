@@ -1,0 +1,48 @@
+﻿@using System.Globalization;
+
+@functions{
+
+    int SetCurrentMonth()
+    {
+        int currentMonth = DateTime.Now.Day <= 26 ? DateTime.Now.Month - 1 : DateTime.Now.Month;
+        return currentMonth;
+    }
+
+
+    string[] SetMonthsNames()
+    {
+        int currentMonth = DateTime.Now.Day <= 26 ? DateTime.Now.Month - 1 : DateTime.Now.Month;
+        DateTimeFormatInfo mfi = new DateTimeFormatInfo();
+        //string firstMonth = mfi.GetMonthName(currentMonth);
+        string secondMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-1).Month);
+        string thirdMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-2).Month);
+        string forthMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-3).Month);
+        string fifthMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-4).Month);
+        string sixthMonth = mfi.GetMonthName(new DateTime(DateTime.Now.Year, currentMonth, 1).AddMonths(-5).Month);
+        string[] months = new string[] { secondMonth, thirdMonth, forthMonth, fifthMonth, sixthMonth };
+
+        return months;
+    }
+
+    string[] setActionValuesAsString()
+    {
+        string[] months = SetMonthsNames();
+
+        string[] values = new string[] { string.Concat("SeverityFive", months[0], DateTime.Now.Year.ToString()),
+                                     string.Concat("SeverityFive", months[1], DateTime.Now.Year.ToString()),
+                                     string.Concat("SeverityFive", months[2], (DateTime.Now.Year - 1).ToString()),
+                                     string.Concat("SeverityFive", months[3], (DateTime.Now.Year-1).ToString()),
+                                     string.Concat("SeverityFive", months[4], (DateTime.Now.Year-1).ToString()) };
+
+        return values;
+    }
+
+
+
+
+
+    };
+}
+}
+
+

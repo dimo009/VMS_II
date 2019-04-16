@@ -1,0 +1,197 @@
+﻿@using System.Globalization;
+
+@{
+    ViewData["Title"] = "Archives";
+}
+
+
+<img src="~/images/DXC_Codes.png" height="400" width="1200" class="rounded mx-auto d-block" style="position:page" alt="DXC Logo">
+
+
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>MDC Configurational</h2>
+
+        <table class="table table-hover">
+
+            <tr style="text-align:center">
+                <th style="text-align:center;font-size:20px">
+                    Severity 5
+                </th>
+                <th style="text-align:center;font-size:20px">
+                    Severity 4
+                </th>
+            </tr>
+
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFive()[0]">@Helper.SetMonthsNames()[0]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFour()[0]">@Helper.SetMonthsNames()[0]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFive()[1]">@Helper.SetMonthsNames()[1]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFour()[1]">@Helper.SetMonthsNames()[1]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFive()[2]">@Helper.SetMonthsNames()[2]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFour()[2]">@Helper.SetMonthsNames()[2]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFive()[3]">@Helper.SetMonthsNames()[3]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFour()[3]">@Helper.SetMonthsNames()[3]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFive()[4]">@Helper.SetMonthsNames()[4]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="Archive" asp-action="@Helper.setActionValuesSeverityFour()[4]">@Helper.SetMonthsNames()[4]</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <h2>MPC Configurational</h2>
+        <table class="table table-hover">
+
+            <tr style="text-align:center">
+                <th style="text-align:center;font-size:20px">
+                    Severity 5
+                </th>
+                <th style="text-align:center;font-size:20px">
+                    Severity 4
+                </th>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFiveMpcConfig()[0]">@Helper.SetMonthsNames()[0]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFourMpcConfig()[0]">@Helper.SetMonthsNames()[0]</a>
+                </td>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFiveMpcConfig()[1]">@Helper.SetMonthsNames()[1]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFourMpcConfig()[1]">@Helper.SetMonthsNames()[1]</a>
+                </td>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFiveMpcConfig()[2]">@Helper.SetMonthsNames()[2]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFourMpcConfig()[2]">@Helper.SetMonthsNames()[2]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFiveMpcConfig()[3]">@Helper.SetMonthsNames()[3]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFourMpcConfig()[3]">@Helper.SetMonthsNames()[3]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFiveMpcConfig()[4]">@Helper.SetMonthsNames()[4]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcConfig" asp-action="@Helper.setActionValuesSeverityFourMpcConfig()[4]">@Helper.SetMonthsNames()[4]</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <h2>MPC Mising patch</h2>
+        <table class="table table-hover">
+
+            <tr style="text-align:center">
+                <th style="text-align:center;font-size:20px">
+                    Severity 5
+                </th>
+                <th style="text-align:center;font-size:20px">
+                    Severity 4
+                </th>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFiveMpcMissingPatch()[0]">@Helper.SetMonthsNames()[0]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFourMpcMissingPatch()[0]">@Helper.SetMonthsNames()[0]</a>
+                </td>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFiveMpcMissingPatch()[1]">@Helper.SetMonthsNames()[1]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFourMpcMissingPatch()[1]">@Helper.SetMonthsNames()[1]</a>
+                </td>
+            </tr>
+
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFiveMpcMissingPatch()[2]">@Helper.SetMonthsNames()[2]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFourMpcMissingPatch()[2]">@Helper.SetMonthsNames()[2]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFiveMpcMissingPatch()[3]">@Helper.SetMonthsNames()[3]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFourMpcMissingPatch()[3]">@Helper.SetMonthsNames()[3]</a>
+                </td>
+            </tr>
+            <tr style="text-align:center">
+                <td>
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFiveMpcMissingPatch()[4]">@Helper.SetMonthsNames()[4]</a>
+                </td>
+                <td style="text-align:center">
+                    <a asp-controller="ArchiveMpcPatch" asp-action="@Helper.setActionValuesSeverityFourMpcMissingPatch()[4]">@Helper.SetMonthsNames()[4]</a>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
