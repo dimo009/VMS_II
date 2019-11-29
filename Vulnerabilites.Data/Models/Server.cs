@@ -36,11 +36,11 @@ namespace Vulnerabilities.Data.Models
         [Column("System type", Order = 4)]
         public string SystemType { get; set; }
 
+
         [MaxLength(70)]
         [Column("OS Version", Order = 5)]
         public string OSversion { get; set; }
 
-        
         [MaxLength(50)]
         [Column("Technical owner", Order = 6)]
         public string TechnicalOwner { get; set; }
@@ -56,6 +56,7 @@ namespace Vulnerabilities.Data.Models
         public DateTime LastDetected { get; set; }
 
         [DisplayFormat(NullDisplayText = "No port")]
+        [Column("Port", Order = 9)]
         public string Port { get; set; }
 
         [DisplayFormat(NullDisplayText = "Empty")]

@@ -22,219 +22,219 @@ namespace Vulnerabilities.Web.Controllers
             this.mpcPatchDB = mpcPatchDB;
         }
 
-        //START REGION FEBRUARY 2019
+        //START REGION October 2019
 
         [HttpGet]
-        [Route(nameof(SeverityFourMpcPatchFebruary2019))]
-        public IActionResult SeverityFourMpcPatchFebruary2019()
+        [Route(nameof(SeverityFourMpcPatchOctober2019))]
+        public IActionResult SeverityFourMpcPatchOctober2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(2, 2019).Where(v => v.Severity == "4")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(10, 2019).Where(v => v.Severity == "4")
             });
         }
 
         [HttpGet]
-        [Route(nameof(SeverityFiveMpcPatchFebruary2019))]
-        public IActionResult SeverityFiveMpcPatchFebruary2019()
+        [Route(nameof(SeverityFiveMpcPatchOctober2019))]
+        public IActionResult SeverityFiveMpcPatchOctober2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(2, 2019).Where(v => v.Severity == "5")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(10, 2019).Where(v => v.Severity == "5")
             });
         }
 
         [HttpGet]
-        [Route(nameof(ImpactedServersMpcPatchFEB2019))]
-        public IActionResult ImpactedServersMpcPatchFEB2019(int? id)
+        [Route(nameof(ImpactedServersMpcPatchOCT2019))]
+        public IActionResult ImpactedServersMpcPatchOCT2019(int? id)
         {
             return View(new VServersListingViewModelMpcPatch
             {
-                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchFEB2019(id)
+                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchOCT2019(id)
 
             });
         }
 
-        //END REGION JANUARY 2019
+        //END REGION September 2019
 
 
-        //START REGION JANUARY 2019
+        //START REGION September 2019
 
         [HttpGet]
-        [Route(nameof(SeverityFourMpcPatchJanuary2019))]
-        public IActionResult SeverityFourMpcPatchJanuary2019()
+        [Route(nameof(SeverityFourMpcPatchSeptember2019))]
+        public IActionResult SeverityFourMpcPatchSeptember2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(1, 2019).Where(v => v.Severity == "4")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(9, 2019).Where(v => v.Severity == "4")
             });
         }
 
         [HttpGet]
-        [Route(nameof(SeverityFiveMpcPatchJanuary2019))]
-        public IActionResult SeverityFiveMpcPatchJanuary2019()
+        [Route(nameof(SeverityFiveMpcPatchSeptember2019))]
+        public IActionResult SeverityFiveMpcPatchSeptember2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(1, 2019).Where(v => v.Severity == "5")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(9, 2019).Where(v => v.Severity == "5")
             });
         }
 
         [HttpGet]
-        [Route(nameof(ImpactedServersMpcPatchJAN2019))]
-        public IActionResult ImpactedServersMpcPatchJAN2019(int? id)
+        [Route(nameof(ImpactedServersMpcPatchSEP2019))]
+        public IActionResult ImpactedServersMpcPatchSEP2019(int? id)
         {
             return View(new VServersListingViewModelMpcPatch
             {
-                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchJAN2019(id)
+                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchSEP2019(id)
 
             });
         }
 
-        //END REGION JANUARY 2019
+        //END REGION September 2019
 
-        //START REGION DECEMBER 2018
+        //START REGION August 2019
 
         [HttpGet]
-        [Route(nameof(SeverityFourMpcPatchDecember2018))]
-        public IActionResult SeverityFourMpcPatchDecember2018()
+        [Route(nameof(SeverityFourMpcPatchAugust2019))]
+        public IActionResult SeverityFourMpcPatchAugust2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(12, 2018).Where(v => v.Severity == "4")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(8, 2019).Where(v => v.Severity == "4")
             });
         }
 
         [HttpGet]
-        [Route(nameof(SeverityFiveMpcPatchDecember2018))]
-        public IActionResult SeverityFiveMpcPatchDecember2018()
+        [Route(nameof(SeverityFiveMpcPatchAugust2019))]
+        public IActionResult SeverityFiveMpcPatchAugust2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(12, 2018).Where(v => v.Severity == "5")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(8, 2019).Where(v => v.Severity == "5")
             });
         }
 
         [HttpGet]
-        [Route(nameof(ImpactedServersMpcPatchDEC2018))]
-        public IActionResult ImpactedServersMpcPatchDEC2018(int? id)
+        [Route(nameof(ImpactedServersMpcPatchAUG2019))]
+        public IActionResult ImpactedServersMpcPatchAUG2019(int? id)
         {
             return View(new VServersListingViewModelMpcPatch
             {
-                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchDEC2018(id)
+                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchAUG2019(id)
 
             });
         }
 
-        //END REGION DECEMBER 2018
+        //END REGION August 2019
 
 
-        //START REGION NOVEMBER 2018
+        //START REGION July 2019
 
         [HttpGet]
-        [Route(nameof(SeverityFourMpcPatchNovember2018))]
-        public IActionResult SeverityFourMpcPatchNovember2018()
+        [Route(nameof(SeverityFourMpcPatchJuly2019))]
+        public IActionResult SeverityFourMpcPatchJuly2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(11, 2018).Where(v => v.Severity == "4")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(7, 2019).Where(v => v.Severity == "4")
             });
         }
 
         [HttpGet]
-        [Route(nameof(SeverityFiveMpcPatchNovember2018))]
-        public IActionResult SeverityFiveMpcPatchNovember2018()
+        [Route(nameof(SeverityFiveMpcPatchJuly2019))]
+        public IActionResult SeverityFiveMpcPatchJuly2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(11, 2018).Where(v => v.Severity == "5")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(7, 2019).Where(v => v.Severity == "5")
             });
         }
 
         [HttpGet]
-        [Route(nameof(ImpactedServersMpcPatchNOV2018))]
-        public IActionResult ImpactedServersMpcPatchNOV2018(int? id)
+        [Route(nameof(ImpactedServersMpcPatchJULY2019))]
+        public IActionResult ImpactedServersMpcPatchJULY2019(int? id)
         {
             return View(new VServersListingViewModelMpcPatch
             {
-                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchNOV2018(id)
+                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchJULY2019(id)
 
             });
         }
 
-        //END REGION NOVEMBER 2018
+        //END REGION July 2019
 
 
-        //START REGION OCTOBER 2018
+        //START REGION JUNE 2019
 
         [HttpGet]
-        [Route(nameof(SeverityFourMpcPatchOctober2018))]
-        public IActionResult SeverityFourMpcPatchOctober2018()
+        [Route(nameof(SeverityFourMpcPatchJune2019))]
+        public IActionResult SeverityFourMpcPatchJune2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(10, 2018).Where(v => v.Severity == "4")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(6, 2019).Where(v => v.Severity == "4")
             });
         }
 
         [HttpGet]
-        [Route(nameof(SeverityFiveMpcPatchOctober2018))]
-        public IActionResult SeverityFiveMpcPatchOctober2018()
+        [Route(nameof(SeverityFiveMpcPatchJune2019))]
+        public IActionResult SeverityFiveMpcPatchJune2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(10, 2018).Where(v => v.Severity == "5")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(6, 2019).Where(v => v.Severity == "5")
             });
         }
 
         [HttpGet]
-        [Route(nameof(ImpactedServersMpcPatchOCT2018))]
-        public IActionResult ImpactedServersMpcPatchOCT2018(int? id)
+        [Route(nameof(ImpactedServersMpcPatchJUNE2019))]
+        public IActionResult ImpactedServersMpcPatchJUNE2019(int? id)
         {
             return View(new VServersListingViewModelMpcPatch
             {
-                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchOCT2018(id)
+                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchJUNE2019(id)
 
             });
         }
 
-        //END REGION OCTOBER 2018
+        //END REGION JUNE 2019
 
-        //Start region SEPTEMBER 2018
+        //Start region SEPTEMBER 2019
 
         [HttpGet]
-        [Route(nameof(SeverityFourMpcPatchSeptember2018))]
-        public IActionResult SeverityFourMpcPatchSeptember2018()
+        [Route(nameof(SeverityFourMpcPatchMay2019))]
+        public IActionResult SeverityFourMpcPatchMay2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(9, 2018).Where(v => v.Severity == "4")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(5, 2019).Where(v => v.Severity == "4")
             });
         }
 
         [HttpGet]
-        [Route(nameof(SeverityFiveMpcPatchSeptember2018))]
-        public IActionResult SeverityFiveMpcPatchSeptember2018()
+        [Route(nameof(SeverityFiveMpcPatchMay2019))]
+        public IActionResult SeverityFiveMpcPatchMay2019()
         {
             return View(new VulnerabilitiesListingViewModelMpcPatch
             {
-                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(9, 2018).Where(v => v.Severity == "5")
+                AllVulnerabilitiesMpcPatch = this.archives.AllVulnerabilitiesMpcPatch(5, 2019).Where(v => v.Severity == "5")
             });
         }
 
         [HttpGet]
-        [Route(nameof(ImpactedServersMpcPatchSEP2018))]
-        public IActionResult ImpactedServersMpcPatchSEP2018(int? id)
+        [Route(nameof(ImpactedServersMpcPatchMAY2019))]
+        public IActionResult ImpactedServersMpcPatchMAY2019(int? id)
         {
             return View(new VServersListingViewModelMpcPatch
             {
-                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchSEP2018(id)
+                ServersAffectedByOneVulnerability = this.archives.AllServersAffectedByOneVulnerabilityMpcPatchMAY2019(id)
 
             });
         }
 
 
-        //END REGION SEPTEMBER 2018
+        //END REGION SEPTEMBER 2019
 
 
   

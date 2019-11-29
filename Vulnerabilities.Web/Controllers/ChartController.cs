@@ -71,5 +71,88 @@ namespace Vulnerabilities.Web.Controllers
 
             return View();
         }
+
+        [Route(nameof(ChartViewMpcConfig))]
+        public ActionResult ChartViewMpcConfig(int? id)
+        {
+
+            List<DataPoint> dataPointsMpcConfig = new List<DataPoint>();
+
+            var vulnerability = this.vulnerabilities.FindVulnerabilityByIdMpcConfig(id);
+
+            Dictionary<string, int> valuesMpcConfig = this.vulnerabilities.AffectedServersCountPerMonthMpcConfig(id);
+
+
+            int[] monthlyStatsMpcConfig = new int[6];
+
+            foreach (var item in valuesMpcConfig)
+            {
+
+                ViewData.Add(new KeyValuePair<string, object>(item.Key, item.Value));
+            }
+
+            for (int i = 0; i < valuesMpcConfig.Count; i++)
+            {
+                monthlyStatsMpcConfig[i] = valuesMpcConfig.Values.ElementAt(i);
+            }
+
+
+
+            foreach (var item in valuesMpcConfig.Reverse())
+            {
+                dataPointsMpcConfig.Add(new DataPoint(item.Key, item.Value));
+            }
+
+
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPointsMpcConfig);
+
+            return View();
+        }
+
+        [Route(nameof(ChartViewMpcPatch))]
+        public ActionResult ChartViewMpcPatch(int? id)
+        {
+
+            List<DataPoint> dataPointsMpcPatch = new List<DataPoint>();
+
+            var vulnerability = this.vulnerabilities.FindVulnerabilityByIdMpcPatch(id);
+
+            Dictionary<string, int> valuesMpcPatch = this.vulnerabilities.AffectedServersCountPerMonthMpcPatch(id);
+
+
+            int[] monthlyStatsMpcPatch = new int[6];
+
+            foreach (var item in valuesMpcPatch)
+            {
+
+                ViewData.Add(new KeyValuePair<string, object>(item.Key, item.Value));
+            }
+
+            for (int i = 0; i < valuesMpcPatch.Count; i++)
+            {
+                monthlyStatsMpcPatch[i] = valuesMpcPatch.Values.ElementAt(i);
+            }
+
+
+
+            foreach (var item in valuesMpcPatch.Reverse())
+            {
+                dataPointsMpcPatch.Add(new DataPoint(item.Key, item.Value));
+            }
+
+
+            //dataPoints.Add(new DataPoint("Albert", 10));
+            //dataPoints.Add(new DataPoint("Tim", 30));
+            //dataPoints.Add(new DataPoint("Wilson", 17));
+            //dataPoints.Add(new DataPoint("Joseph", 39));
+            //dataPoints.Add(new DataPoint("Robert", 30));
+            //dataPoints.Add(new DataPoint("Sophia", 25));
+            //dataPoints.Add(new DataPoint("Emma", 15));
+
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPointsMpcPatch);
+
+            return View();
+        }
     }
 }

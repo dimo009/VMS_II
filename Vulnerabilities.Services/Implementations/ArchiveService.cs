@@ -23,13 +23,13 @@ namespace Vulnerabilities.Services.Implementations
             this.mpcPatchDB = mpcPatchDB;
         }
 
-        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityFEB2019(int? id)
+        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityOCT2019(int? id)
         {
             string severity = this.db.Vulnerabilities.Find(id).Severity;
 
             var result = this.db.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 2)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 10)
                 .Select(s => new VServersListingModel
                 {
                     Id = s.Id,
@@ -49,13 +49,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityJAN2019(int? id)
+        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilitySEP2019(int? id)
         {
             string severity = this.db.Vulnerabilities.Find(id).Severity;
 
             var result = this.db.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 1)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 9)
                 .Select(s => new VServersListingModel
                 {
                     Id = s.Id,
@@ -75,13 +75,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityDEC2018(int? id)
+        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityAUG2019(int? id)
         {
             string severity = this.db.Vulnerabilities.Find(id).Severity;
 
             var result = this.db.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 12)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 8)
                 .Select(s => new VServersListingModel
                 {
                     Id = s.Id,
@@ -101,13 +101,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityNOV2018(int? id)
+        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityJULY2019(int? id)
         {
             string severity = this.db.Vulnerabilities.Find(id).Severity;
 
             var result = this.db.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 11)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 7)
                 .Select(s => new VServersListingModel
                 {
                     Id = s.Id,
@@ -127,13 +127,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityOCT2018(int? id)
+        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityJUNE2019(int? id)
         {
             string severity = this.db.Vulnerabilities.Find(id).Severity;
 
             var result = this.db.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 10)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 6)
                 .Select(s => new VServersListingModel
                 {
                     Id = s.Id,
@@ -153,13 +153,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilitySEP2018(int? id)
+        public IEnumerable<VServersListingModel> AllServersAffectedByOneVulnerabilityMAY2019(int? id)
         {
             string severity = this.db.Vulnerabilities.Find(id).Severity;
 
             var result = this.db.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 9)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 5)
                 .Select(s => new VServersListingModel
                 {
                     Id = s.Id,
@@ -246,13 +246,13 @@ namespace Vulnerabilities.Services.Implementations
 
 
 
-        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigFEB2019(int? id)
+        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigOCT2019(int? id)
         {
             string severity = this.mpcConfigDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcConfigDB.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 2)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 10)
                 .Select(s => new VServersListingModelMpcConfig
                 {
                     Id = s.Id,
@@ -272,13 +272,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigJAN2019(int? id)
+        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigSEP2019(int? id)
         {
             string severity = this.mpcConfigDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcConfigDB.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 1)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 9)
                 .Select(s => new VServersListingModelMpcConfig
                 {
                     Id = s.Id,
@@ -298,13 +298,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigDEC2018(int? id)
+        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigAUG2019(int? id)
         {
             string severity = this.mpcConfigDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcConfigDB.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 12)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 8)
                 .Select(s => new VServersListingModelMpcConfig
                 {
                     Id = s.Id,
@@ -324,13 +324,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigNOV2018(int? id)
+        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigJULY2019(int? id)
         {
             string severity = this.mpcConfigDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcConfigDB.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 11)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 7)
                 .Select(s => new VServersListingModelMpcConfig
                 {
                     Id = s.Id,
@@ -350,13 +350,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigOCT2018(int? id)
+        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigJUNE2019(int? id)
         {
             string severity = this.mpcConfigDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcConfigDB.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 10)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 6)
                 .Select(s => new VServersListingModelMpcConfig
                 {
                     Id = s.Id,
@@ -376,13 +376,13 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigSEP2018(int? id)
+        public IEnumerable<VServersListingModelMpcConfig> AllServersAffectedByOneVulnerabilityMpcConfigMAY2019(int? id)
         {
             string severity = this.mpcConfigDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcConfigDB.Servers
                 .Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 9)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 5)
                 .Select(s => new VServersListingModelMpcConfig
                 {
                     Id = s.Id,
@@ -405,12 +405,12 @@ namespace Vulnerabilities.Services.Implementations
 
 
 
-        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchFEB2019(int? id)
+        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchOCT2019(int? id)
         {
             string severity = this.mpcPatchDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcPatchDB.Servers.Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 2)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 10)
                  .Select(s => new VServersListingModelMpcPatch
                  {
                      Id = s.Id,
@@ -430,12 +430,12 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchJAN2019(int? id)
+        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchSEP2019(int? id)
         {
             string severity = this.mpcPatchDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcPatchDB.Servers.Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 1)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 9)
                  .Select(s => new VServersListingModelMpcPatch
                  {
                      Id = s.Id,
@@ -455,12 +455,12 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchDEC2018(int? id)
+        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchAUG2019(int? id)
         {
             string severity = this.mpcPatchDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcPatchDB.Servers.Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 12)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 8)
                  .Select(s => new VServersListingModelMpcPatch
                  {
                      Id = s.Id,
@@ -480,12 +480,12 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchNOV2018(int? id)
+        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchJULY2019(int? id)
         {
             string severity = this.mpcPatchDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcPatchDB.Servers.Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 11)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 7)
                  .Select(s => new VServersListingModelMpcPatch
                  {
                      Id = s.Id,
@@ -505,12 +505,12 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchOCT2018(int? id)
+        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchJUNE2019(int? id)
         {
             string severity = this.mpcPatchDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcPatchDB.Servers.Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 10)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 6)
                  .Select(s => new VServersListingModelMpcPatch
                  {
                      Id = s.Id,
@@ -530,12 +530,12 @@ namespace Vulnerabilities.Services.Implementations
             return result;
         }
 
-        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchSEP2018(int? id)
+        public IEnumerable<VServersListingModelMpcPatch> AllServersAffectedByOneVulnerabilityMpcPatchMAY2019(int? id)
         {
             string severity = this.mpcPatchDB.Vulnerabilities.Find(id).Severity;
 
             var result = this.mpcPatchDB.Servers.Where(s => s.Vulnerabilities.Any(v => v.VulnerabilityId == id))
-                .Where(s => s.LastDetected.Year == 2018 && s.LastDetected.Month == 9)
+                .Where(s => s.LastDetected.Year == 2019 && s.LastDetected.Month == 5)
                  .Select(s => new VServersListingModelMpcPatch
                  {
                      Id = s.Id,

@@ -1,8 +1,10 @@
-﻿using OfficeOpenXml;
+﻿using Microsoft.EntityFrameworkCore;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Vulnerabilites.Data.Context;
 using Vulnerabilities.Data.Models;
 using Vulnerabilities.DataManagement.Constants;
@@ -15,6 +17,8 @@ namespace Vulnerabilities.DataManagement
         private readonly VulnerabilityDBContext context;
         private readonly MpcDBContext mpcConfigContext;
         private readonly MPCMissingPatchDbContext mpcPatchContext;
+
+
 
         public DataLoad(VulnerabilityDBContext context, MpcDBContext mpcConfigContext, MPCMissingPatchDbContext mpcPatchContext)
         {
@@ -34,20 +38,24 @@ namespace Vulnerabilities.DataManagement
             //int fileCount = directory.GetFiles().Length;
             //bool containsFileForUpload = directory.GetFiles().Any(f => f.Name == "ConfigFindingsSEP2018.xlsx");
 
-            FileInfo fileConfigFindings = new FileInfo(PathConstants.excelFilePath);
 
+
+
+            FileInfo fileMdcConfig = new FileInfo(PathConstants.mdcConfigFindingsExcel);
 
             //getting the current month from the excel file - when the excel file was created. 
 
-            currentMonth = fileConfigFindings.CreationTime.Month - 1;
+            currentMonth = fileMdcConfig.CreationTime.Month;
 
-            using (ExcelPackage package = new ExcelPackage(fileConfigFindings))
+            using (ExcelPackage package = new ExcelPackage(fileMdcConfig))
             {
-                ExcelWorksheet rawData = package.Workbook.Worksheets[1];
+                ExcelWorksheet rawData = package.Workbook.Worksheets[4]; 
 
                 int rowCount = rawData.Dimension.Rows; //3430
                 int colCount = rawData.Dimension.Columns; //35
                 string targetValue = Convert.ToString(rawData.Cells[rowCount, 1].Value);
+                //Name of the file which is being processed
+               
                 if (Convert.ToString(rawData.Cells[rowCount, 1].Value) != "Uploaded")
                 {
                     for (int row = 2; row <= rowCount; row++)
@@ -65,13 +73,15 @@ namespace Vulnerabilities.DataManagement
                         string technicalOwner = Convert.ToString(rawData.Cells[row, 6].Value);
                         string downtimeContact = Convert.ToString(rawData.Cells[row, 7].Value);
                         string ipType = Convert.ToString(rawData.Cells[row, 8].Value);
-                        string qid = Convert.ToString(rawData.Cells[row, 13].Value);
-                        string title = Convert.ToString(rawData.Cells[row, 14].Value);
-                        string severity = Convert.ToString(rawData.Cells[row, 16].Value);
-                        string port = Convert.ToString(rawData.Cells[row, 17].Value);
-                        DateTime lastDetected = DateTime.Parse(Convert.ToString(rawData.Cells[row, 20].Value));
-                        string cve = Convert.ToString(rawData.Cells[row, 21].Value);
-                        string solution = Convert.ToString(rawData.Cells[row, 23].Value);
+                        string qid = Convert.ToString(rawData.Cells[row, 15].Value);
+                        string title = Convert.ToString(rawData.Cells[row, 16].Value);
+                        string severity = Convert.ToString(rawData.Cells[row, 19].Value);
+                        string port = Convert.ToString(rawData.Cells[row, 20].Value);
+                        DateTime lastDetected = DateTime.Parse(Convert.ToString(rawData.Cells[row, 25].Value));
+                        string cve = Convert.ToString(rawData.Cells[row, 28].Value);
+                        string solution = Convert.ToString(rawData.Cells[row, 31].Value);
+
+
 
                         if (!context.Vulnerabilities.Any(v => v.Name == title))
                         {
@@ -147,10 +157,12 @@ namespace Vulnerabilities.DataManagement
 
             }
 
-            FileInfo fileMPCConfig = new FileInfo(PathConstants.MpcConfigExcel);
+
+
+            FileInfo fileMPCConfig = new FileInfo(PathConstants.mpcConfigFindingsExcel);
             using (ExcelPackage package = new ExcelPackage(fileMPCConfig))
             {
-                ExcelWorksheet rawData = package.Workbook.Worksheets[1];
+                ExcelWorksheet rawData = package.Workbook.Worksheets[4];
 
                 int rowCount = rawData.Dimension.Rows; //3430
                 int colCount = rawData.Dimension.Columns; //35
@@ -179,6 +191,8 @@ namespace Vulnerabilities.DataManagement
                         DateTime lastDetected = DateTime.Parse(Convert.ToString(rawData.Cells[row, 25].Value));
                         string cve = Convert.ToString(rawData.Cells[row, 28].Value);
                         string solution = Convert.ToString(rawData.Cells[row, 31].Value);
+
+                     
 
                         if (!mpcConfigContext.Vulnerabilities.Any(v => v.Name == title))
                         {
@@ -252,10 +266,10 @@ namespace Vulnerabilities.DataManagement
 
 
 
-            FileInfo fileMPCPatch = new FileInfo(PathConstants.MpcPatchExcel);
+            FileInfo fileMPCPatch = new FileInfo(PathConstants.mpcMissingPatchExcel);
             using (ExcelPackage package = new ExcelPackage(fileMPCPatch))
             {
-                ExcelWorksheet rawData = package.Workbook.Worksheets[1];
+                ExcelWorksheet rawData = package.Workbook.Worksheets[4];
 
                 int rowCount = rawData.Dimension.Rows; //3430
                 int colCount = rawData.Dimension.Columns; //35
@@ -265,7 +279,7 @@ namespace Vulnerabilities.DataManagement
                 {
                     for (int row = 2; row <= rowCount; row++)
                     {
-                        if ((Convert.ToString(rawData.Cells[row, 2].Value) == "ZZZZZ")|| (Convert.ToString(rawData.Cells[row, 2].Value) == @"#N/A"))
+                        if ((Convert.ToString(rawData.Cells[row, 2].Value) == "ZZZZZ") || (Convert.ToString(rawData.Cells[row, 2].Value) == @"#N/A"))
                         {
                             continue;
                         }
@@ -285,6 +299,8 @@ namespace Vulnerabilities.DataManagement
                         DateTime lastDetected = DateTime.Parse(Convert.ToString(rawData.Cells[row, 25].Value));
                         string cve = Convert.ToString(rawData.Cells[row, 28].Value);
                         string solution = Convert.ToString(rawData.Cells[row, 31].Value);
+
+                      
 
                         if (!mpcPatchContext.Vulnerabilities.Any(v => v.Name == title))
                         {

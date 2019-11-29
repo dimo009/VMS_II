@@ -1,0 +1,72 @@
+﻿@model VulnerabilitiesListingViewModelMpcConfig
+
+@{
+    ViewData["Title"] = "Severity 4 - Sepetmber 2019";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<p>
+    Total number: <span class="badge-pill">@Model.AllVulnerabilitiesMpcConfig.Count()</span>
+</p>
+
+<br />
+
+<form class="form-inline my-2 my-sm-1">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+
+<div class="form-border">
+
+    <table class="table table-responsive">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th style="text-align:center">
+                Affected servers
+            </th>
+            <th style="text-align:center">
+                Options
+            </th>
+        </tr>
+
+        @foreach (var vulnerability in Model.AllVulnerabilitiesMpcConfig.Where(v => v.Severity == "4").OrderByDescending(v => v.AffectedServersCount))
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(m => vulnerability.Name)
+                </td>
+                <td style="text-align:center">
+                    @Html.DisplayFor(m => vulnerability.AffectedServersCount)
+                </td>
+                <td style=" text-align:center">
+                    <div class="btn-block btn-group-sm">
+
+                        <a asp-action="EditNoteMpcConfig" asp-route-id="@vulnerability.Id" class="btn btn-sm btn-success">Edit note</a>
+
+                        <a asp-controller="Vulnerability" asp-action="VulnerabilityDetailsMpcConfig" asp-route-id="@vulnerability.Id" class="btn btn-info ">Details</a>
+                        <a asp-controller="ArchiveMpcConfig" asp-action="ImpactedServersMpcConfigSEP2019" asp-route-id="@vulnerability.Id" class="btn btn-outline-dark">Servers</a>
+                        <a asp-action="ArchiveVulnerability" asp-route-id="@vulnerability.Id" class="btn btn-danger">Solved</a>
+                        <!--
+                            <a asp-action="EditVulnerability" asp-route-id="@vulnerability.Id" class="btn btn-sm btn-success col-md-4">Edit</a>
+                            <a asp-action="Details" asp-route-id="@vulnerability.Id" class="btn btn-sm btn-primary">Details</a>
+                            <a asp-action="ArchiveVulnerability" asp-route-id="@vulnerability.Id" class="btn btn-sm btn-danger">Mark as solved</a>
+                        -->
+                    </div>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<div class="btn-block btn-group-sm">
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-sm btn-primary">Home</a>
+    <a asp-area="" asp-controller="Vulnerability" asp-action="SeverityFourMpcConfigSeptember2019" class="btn btn-sm btn-info">Severity 4</a>
+</div>

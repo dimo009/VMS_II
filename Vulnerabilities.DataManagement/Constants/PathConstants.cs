@@ -7,11 +7,11 @@ namespace Vulnerabilities.DataManagement.Constants
 
     public static class PathConstants
     {
-        public const string excelFilePath = @"C:\Users\dstoyanov5\OneDrive - DXC Production\source\repos\Vulnerabilities\Vulnerabilities.DataManagement\Resources\ConfigFindingsMAR2019.xlsx";
+        public const string mdcConfigFindingsExcel = @"C:\Users\dstoyanov5\OneDrive - DXC Production\source\repos\Vulnerabilities\Vulnerabilities.DataManagement\Resources\MDC\MDC_ConfigFindingsNov2019.xlsx";
+      
+        public const string mpcConfigFindingsExcel = @"C:\Users\dstoyanov5\OneDrive - DXC Production\source\repos\Vulnerabilities\Vulnerabilities.DataManagement\Resources\MPC\MPC_ConfigFindingsNov2019.xlsx";
 
-        public const string MpcConfigExcel = @"C:\Users\dstoyanov5\OneDrive - DXC Production\source\repos\Vulnerabilities\Vulnerabilities.DataManagement\Resources\MPC_ConfigFindingsMAR2019.xlsx";
-
-        public const string MpcPatchExcel = @"C:\Users\dstoyanov5\OneDrive - DXC Production\source\repos\Vulnerabilities\Vulnerabilities.DataManagement\Resources\MPC_MissingPatchFindingsMAR2019.xlsx";
+        public const string mpcMissingPatchExcel = @"C:\Users\dstoyanov5\OneDrive - DXC Production\source\repos\Vulnerabilities\Vulnerabilities.DataManagement\Resources\MPC\MPC_MissingPatchFindingsNov2019.xlsx";
 
         
     }
